@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: Gateway-service
+  cloud:
+    discovery:
+      enabled: true
+#    gateway:
+#      routes:
+#        - id: r1
+#          uri: lb://CLIENT-SERVICE
+#          predicates:
+#            - Path= /clients/**
+#        - id: r2
+#          uri: lb://PRODUCT-SERVICE
+#          predicates:
+#            - Path= /products/**
+
