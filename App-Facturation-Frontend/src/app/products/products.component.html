@@ -1,0 +1,52 @@
+<div class="container mt-2">
+  <nav class="p-2 m-2 border ">
+    <button class="btn btn btn-outline-dark" (click)="handelNewProduct()">Add Product</button>
+  </nav>
+  <ng-container *ngIf="products" >
+    <div class="card" *ngIf="products">
+      <div class="card-header">Products</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Reference</th>
+            <th>Prix</th>
+            <th>Detail</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of  products._embedded.products">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.reference}}</td>
+            <td>{{c.prix}}</td>
+            <td>
+              <button class="btn btn-success" >
+                Details
+              </button>
+            </td>
+            <td>
+              <button  class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #failureOrLading >
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="text-danger">
+        {{errorMessage}}
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      Loading ............
+    </ng-template>
+  </ng-template>
+</div>

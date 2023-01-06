@@ -1,0 +1,80 @@
+<div class="container mt-2">
+  <nav class="p-2 m-2 border ">
+    <button class="btn btn btn-outline-dark" (click)="handelAddArticle(factureId)">Add Product</button>
+  </nav>
+  <ng-container *ngIf="facture" >
+    <div class="card" *ngIf="facture">
+      <div class="card-header">Factures</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Reference</th>
+            <th>Date</th>
+            <th>clientId</th>
+            <th>client Name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>{{facture.id}}</td>
+            <td>{{facture.reference}}</td>
+            <td>{{facture.factureDate | date: "dd.MM.y"}}</td>
+            <td>{{facture.clientId}}</td>
+            <td>{{facture.client.name}}</td>
+
+          </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Sub Total</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let A of facture.productList">
+              <td>{{A.id}}</td>
+              <td>{{A.product.name}}</td>
+              <td>{{A.quantity}}</td>
+              <td>{{A.unitePrice}}</td>
+              <td>{{A.subTotal}}</td>
+              <td>
+                <button class="btn btn-success" >
+                  Details
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-danger" (click)="handleDeleteArticle(A.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Total : </td>
+              <td>{{facture.prixTotal}}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -11,6 +11,7 @@
         <module name="Produit-service" />
         <module name="Facture-service" />
         <module name="Discovery-service" />
+        <module name="Config-service" />
         <module name="Gateway" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Client-service" options="-parameters" />
+      <module name="Config-service" options="-parameters" />
       <module name="Discovery-service" options="-parameters" />
       <module name="Facture-service" options="-parameters" />
       <module name="Gateway" options="-parameters" />
